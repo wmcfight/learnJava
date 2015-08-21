@@ -21,8 +21,6 @@ public class CallbackSample {
         guavaListenFuture();
         springListenFuture();
 
-
-
     }
 
     private static void springListenFuture() {
