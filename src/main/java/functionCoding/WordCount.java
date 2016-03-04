@@ -28,9 +28,9 @@ public class WordCount {
 
     public Map wordFreg(String words) {
         final TreeMap<String, Integer> wordMap = new TreeMap<String, Integer>();
-        regexToList(words, "\\w+").stream().map(w -> w.toLowerCase())
-                .filter(w -> !NON_WORDS.contains(w))
-                .forEach(w -> wordMap.put(w, wordMap.getOrDefault(w, 0) + 1));
+//        regexToList(words, "\\w+").stream().map(w -> w.toLowerCase())
+//                .filter(w -> !NON_WORDS.contains(w))
+//                .forEach(w -> wordMap.put(w, wordMap.getOrDefault(w, 0) + 1));
         return wordMap;
     }
 
