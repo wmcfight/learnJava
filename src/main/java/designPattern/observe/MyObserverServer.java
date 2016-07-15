@@ -1,8 +1,5 @@
 package designPattern.observe;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -26,13 +23,31 @@ public class MyObServerServer extends Observable {
         super.notifyObservers(message);
     }
 
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
     static class ObServerMessage {
         //    private
         private String type;
         private String value;
+
+        public ObServerMessage(String type, String value) {
+            this.type = type;
+            this.value = value;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
     }
 
 
