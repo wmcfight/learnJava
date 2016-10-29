@@ -19,12 +19,12 @@ public class PrintSymbol {
 
             System.out.println(s.toString());
             return;
-
-
-
         }
 
         if (left < n/2) {
+
+
+
             s.append('(');
             printSymbol(n, left + 1, s);
             s.deleteCharAt(s.length() - 1);
