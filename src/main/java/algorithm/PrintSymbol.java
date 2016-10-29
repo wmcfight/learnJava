@@ -17,12 +17,11 @@ public class PrintSymbol {
         }
         if (s.length() >= n) {
 
-
-
-
             System.out.println(s.toString());
-
             return;
+
+
+
         }
 
         if (left < n/2) {
