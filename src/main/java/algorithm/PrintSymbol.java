@@ -3,8 +3,13 @@ package algorithm;
 /**
  * Created by weimingchuan on 16/3/3.
  * 打印所有括号的排列组合,主要学习应用StringBuffer 替代String 的API
+ *
+ *
+ *
  */
 public class PrintSymbol {
+
+
 
     public static void printSymbol(int n, int left, StringBuffer s) {
         if (n%2 != 0) {
