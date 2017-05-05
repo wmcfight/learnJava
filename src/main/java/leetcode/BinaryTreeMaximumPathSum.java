@@ -37,4 +37,17 @@ private:
     }
  */
 public class BinaryTreeMaximumPathSum {
+    private int maxPath = Integer.MIN_VALUE;
+    int maxPathSum(TreeNode root) {
+        maxPath(root);
+        return maxPath;
+    }
+
+    int maxPath(TreeNode root) {
+        if(root == null) return 0;
+        int leftMax = maxPath(root.left);
+        int rightMax = maxPath(root.right);
+        maxPath = Math.max(maxPath, root.val + Math.max(0, leftMax) + Math.max(0, rightMax));
+        return root.val + Math.max(0, Math.max(leftMax, rightMax));
+    }
 }

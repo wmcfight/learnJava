@@ -3,7 +3,8 @@ package leetcode;
 /*
 Say you have an array for which the ith element is the price of a given stock on day i.
 
-If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.
+If you were only permitted to complete at most one transaction
+(ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.
 
 Example 1:
 Input: [7, 1, 5, 3, 6, 4]
@@ -28,4 +29,12 @@ int maxProfit(vector<int> &prices) {
 
  */
 public class BestTimetoBuyandSellStock {
+    public int maxProfit(int[] data) {
+        int curMin = Integer.MAX_VALUE, result = Integer.MIN_VALUE;
+        for (int i = 0; i < data.length; i++) {
+            curMin = Math.min(curMin, data[i]);
+            result = Math.max(result, data[i] - curMin);
+        }
+        return result == Integer.MIN_VALUE ? 0 : result;
+    }
 }

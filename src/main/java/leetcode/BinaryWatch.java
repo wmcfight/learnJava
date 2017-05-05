@@ -10,6 +10,8 @@ import java.util.Set;
  *
  * 还是http://blog.csdn.net/u013325815/article/details/52582210
  * 这个厉害，利用
+ * 想到1,2,4,8都是2的整数倍，每个数都只有1个bit，那么就是搜索所有的解空间，
+ * 看那几个数的bit之和等于num，不过谁能想到Integer有bitCount这个method呢？不过这个人确实牛逼！ %02d，0表示数字前面补0.
  */
 public class BinaryWatch {
     private static final Integer[] MINUTES = {480, 240, 120, 60, 32, 16, 8, 4, 2, 1};

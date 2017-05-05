@@ -18,6 +18,8 @@ Trivia:
 This problem was inspired by this original tweet by Max Howell:
  */
 
+import java.util.Stack;
+
 class TreeNode {
       int val;
      TreeNode left;
@@ -41,5 +43,25 @@ public class InvertBinaryTree {
             invert(node.right);
         }
 
+    }
+
+    public TreeNode invertNoRecursion(TreeNode root) {
+        if (root == null) return root;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.empty()) {
+            TreeNode cur = stack.pop();
+            TreeNode temp = cur.left;
+            cur.left = cur.right;
+            cur.right = temp;
+            if (cur.left != null) {
+                stack.push(cur.left);
+            }
+            if (cur.right != null) {
+                stack.push(cur.right);
+            }
+        }
+
+        return root;
     }
 }

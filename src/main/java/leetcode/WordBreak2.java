@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.List;
+
 /*
 Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. You may assume the dictionary does not contain duplicate words.
 
@@ -55,4 +57,7 @@ public:
 
  */
 public class WordBreak2 {
+    public List<String> wordBreak(String s, List<String> wordDict) {
+        return null;
+    }
 }

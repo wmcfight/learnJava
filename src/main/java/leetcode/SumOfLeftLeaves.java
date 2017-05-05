@@ -18,9 +18,9 @@ There are two left leaves in the binary tree, with values 9 and 15 respectively.
  */
 public class SumOfLeftLeaves {
     public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
+        public int val;
+        public TreeNode left;
+        public TreeNode right;
         TreeNode(int x) { val = x; }
     }
 

@@ -19,4 +19,8 @@ public class UglyNumber {
         }
         return num;
     }
+
+    public static void main(String[] args) {
+        System.out.println();
+    }
 }

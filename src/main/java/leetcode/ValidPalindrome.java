@@ -43,4 +43,32 @@ public boolean isPalindrome(String s) {
 	}
  */
 public class ValidPalindrome {
+    public boolean isPalindrome(String s) {
+        int i = 0, j = s.length() - 1;
+        boolean result = true;
+        while (i < j) {
+            if (!Character.isLetterOrDigit(s.charAt(i))) {
+                i++;
+                continue;
+            }
+            if (!Character.isLetterOrDigit(s.charAt(j))) {
+                j--;
+                continue;
+            }
+            if ((Character.isLetter(s.charAt(i))
+                    && Character.isLetter(s.charAt(j)) && (Character
+                    .toLowerCase(s.charAt(i)) == Character.toLowerCase(s
+                    .charAt(j))))
+                    || (Character.isDigit(s.charAt(i))
+                    && Character.isDigit(s.charAt(j)) && (s.charAt(i) == s
+                    .charAt(j)))) {
+                i++;j--;
+            }else{
+                result = false;
+                break;
+            }
+
+        }
+        return result;
+    }
 }

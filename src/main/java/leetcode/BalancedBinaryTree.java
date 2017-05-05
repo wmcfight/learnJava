@@ -28,4 +28,22 @@ private:
 
  */
 public class BalancedBinaryTree {
+    boolean isBalanced(TreeNode data) {
+        if (data == null) {
+            return true;
+        }
+        int leftDep = getDepth(data.left);
+        int rightDep = getDepth(data.right);
+        if (Math.abs(leftDep - rightDep) <= 1) {
+            return isBalanced(data.left) && isBalanced(data.right);
+        } else {
+            return false;
+        }
+    }
+
+    int getDepth(TreeNode data) {
+        if (data == null) return 0;
+        if (data.left == null && data.right == null) return 1;
+        return Math.max(getDepth(data.left) + 1, getDepth(data.right) + 1);
+    }
 }

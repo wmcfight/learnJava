@@ -48,13 +48,50 @@ Visually, the graph looks like the following:
     }
  */
 
-
+/**
+ * copy a graph
+ */
 
 /*
 用queue 加map 做层次拷贝
 
  */
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * 层次遍历，
+ * 用map 防回路
+ */
+
+
+class UndirectedGraphNode {
+    int label;
+     List<UndirectedGraphNode> neighbors;
+     UndirectedGraphNode(int x) { label = x; neighbors = new ArrayList<UndirectedGraphNode>(); }
+};
 
 public class CloneGraph {
+
+    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+        if (node == null) return null;
+        Map<UndirectedGraphNode, UndirectedGraphNode> copyMap = new HashMap<>();
+        buildGraph(node, copyMap);
+        return copyMap.get(node);
+    }
+
+    private UndirectedGraphNode buildGraph(UndirectedGraphNode node, Map<UndirectedGraphNode, UndirectedGraphNode> copyMap) {
+        if (copyMap.containsKey(node)) {
+            return copyMap.get(node);
+        }
+        UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
+        copyMap.put(node, newNode);
+        for (UndirectedGraphNode curNode : node.neighbors) {
+            newNode.neighbors.add(buildGraph(curNode, copyMap));
+        }
+        return newNode;
+    }
 }

@@ -9,6 +9,13 @@ Return a deep copy of the list.
 
  */
 
+/**
+ * copy a linked list with random pointer
+ */
+
+/**
+ * 思路，复制，解耦
+ */
 
 class RandomListNode {
   int label;

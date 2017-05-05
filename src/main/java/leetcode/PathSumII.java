@@ -44,5 +44,30 @@ private:
  */
 
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class PathSumII {
+    public List<List<Integer>> pathSum(TreeNode root, int sum) {
+        List<List<Integer>> result = new LinkedList<>();
+        if (root == null) return result;
+        dfs(root, sum, new LinkedList<Integer>(), result);
+        return result;
+    }
+
+    private void dfs(TreeNode root, int sum, LinkedList<Integer> curPath, List<List<Integer>> result) {
+        if (root == null) return;
+        curPath.addLast(root.val);
+        sum -= root.val;
+        if (root.left == null && root.right == null) {
+            if(sum == 0) {
+                // pay attention
+                result.add(new LinkedList<>(curPath));
+            }
+        }
+        dfs(root.left, sum, curPath, result);
+        dfs(root.right, sum, curPath, result);
+        curPath.removeLast();
+    }
+
 }

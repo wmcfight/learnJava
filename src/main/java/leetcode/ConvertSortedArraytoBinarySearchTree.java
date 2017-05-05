@@ -18,4 +18,17 @@ private:
     }
  */
 public class ConvertSortedArraytoBinarySearchTree {
+
+    public TreeNode sortedArrayToBST(int[] data) {
+        if (data.length <= 0) return null;
+        return buildBST(data, 0, data.length-1);
+    }
+    private TreeNode buildBST(int[] data, int left, int right) {
+        if (left > right) return null;
+        int mid = (left + right) / 2;
+        TreeNode node = new TreeNode(data[mid]);
+        node.left = buildBST(data, left, mid - 1);
+        node.right = buildBST(data, mid + 1, right);
+        return node;
+    }
 }
