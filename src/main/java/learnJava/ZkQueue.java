@@ -66,8 +66,8 @@ public class ZkQueue {
 		for(Integer item: data1){
 			System.out.println(item);
 		}
-		//System.arraycopy(data1, 0, data2, 0, data1.size());
-		//Collections.copy(data1, data2);
+		//System.arraycopy(data1, 0, data.txt, 0, data1.size());
+		//Collections.copy(data1, data.txt);
 		data2 = data1;
 		for(Integer item: data2){
 			System.out.println(item);

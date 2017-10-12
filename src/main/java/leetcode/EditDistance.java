@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.Arrays;
+
 /*
 Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2.
 (each operation is counted as 1 step.)
@@ -37,5 +39,36 @@ int minDistance(string word1, string word2) {
 
  */
 public class EditDistance {
+    public int minDistance(String word1, String word2) {
+        if(word1.length() <= 0) return word2.length();
+        if(word2.length() <= 0) return word1.length();
 
+        int depth = word1.length(), width = word2.length();
+        int[][] con = new int[word1.length()+1][word2.length()+1];
+        for (int i = 0; i <= width; i++) {
+            con[0][i] = i;
+        }
+
+        for (int i = 0; i <= depth; i++) {
+            con[i][0] = i;
+        }
+
+
+        for (int i = 1; i <= depth; i++) {
+            for (int j = 1; j <= width; j++) {
+                if (word1.charAt(i-1) == word2.charAt(j-1)) {
+                    con[i][j] = con[i-1][j-1];
+                } else {
+                    con[i][j] = Math.min(con[i-1][j-1], Math.min(con[i][j-1], con[i-1][j])) + 1;
+                }
+            }
+        }
+
+        return con[depth][width];
+    }
+
+    public static void main(String[] args) {
+        EditDistance sample = new EditDistance();
+        System.out.println(sample.minDistance("distance", "springbok"));
+    }
 }

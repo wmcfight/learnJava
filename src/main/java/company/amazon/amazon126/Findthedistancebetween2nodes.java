@@ -7,6 +7,7 @@ package company.amazon.amazon126;
  */
 
 import leetcode.SumOfLeftLeaves;
+import lombok.Synchronized;
 
 /**
  *
@@ -44,6 +45,7 @@ public class Findthedistancebetween2nodes {
 
     private static int findLevel(SumOfLeftLeaves.TreeNode root, SumOfLeftLeaves.TreeNode node)
     {
+
         if (root == null)
             return -1;
         if(root.val == node.val)
